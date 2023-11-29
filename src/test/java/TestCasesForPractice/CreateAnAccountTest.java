@@ -1,4 +1,4 @@
-package TestLogin;
+package TestCasesForPractice;
 
 import com.luma.bdd.qa.Utilities.Util;
 import org.openqa.selenium.By;
@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import javax.swing.*;
 
 public class CreateAnAccountTest {
     public WebDriver driver;

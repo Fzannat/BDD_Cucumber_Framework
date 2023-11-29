@@ -1,4 +1,4 @@
-package TestLogin;
+package TestCasesForPractice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class ShoppingCart {
+public class ShoppingCartTest {
 
     public WebDriver driver;
 
