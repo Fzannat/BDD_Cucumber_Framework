@@ -1,0 +1,11 @@
+Create a Page Object Model for the login page of a website. Use Page Factory to initialize the elements.
+Write a TestNG test to verify successful login with valid credentials.
+Create a Page Object Model for the shopping cart page of a website. Use Page Factory to initialize the
+elements. Write a TestNG test to add a product to the cart, navigate to the cart page, and verify that the
+product is added to the cart.
+Create a Page Object Model for the search page of a website. Use Page Factory to initialize the
+elements. Write a TestNG test to search for a product, verify that the search results are displayed, and
+click on a specific product to navigate to its details page.
+
+
+
