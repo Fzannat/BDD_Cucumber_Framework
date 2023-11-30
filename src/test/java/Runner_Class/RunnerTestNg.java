@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false,
         monochrome = true,
         features = "src/test/resources/com.luma.bdd.qa.FeatureFile",
-        glue = {"step_definition","com.bdd.hooks"},
-        tags = "@LUMAShoppingCart",
+        glue = {"com/bdd/step_definition","com.bdd.hooks"},
+        tags = "@LUMAShoppingCart or @LUMASearchProduct or @LUMALogin or @LUMACreateAnAccount",
         plugin = {"pretty", "html:target/site/cucumber-html", "json:target/cucumber1.json"}
 )
 

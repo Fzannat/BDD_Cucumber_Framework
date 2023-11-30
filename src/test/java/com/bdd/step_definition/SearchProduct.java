@@ -1,4 +1,4 @@
-package step_definition;
+package com.bdd.step_definition;
 
 import com.bdd.DriverLogic.DriverFactory;
 import io.cucumber.java.Before;
