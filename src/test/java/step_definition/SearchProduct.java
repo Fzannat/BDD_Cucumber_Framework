@@ -1,5 +1,6 @@
 package step_definition;
 
+import com.bdd.DriverLogic.DriverFactory;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,19 +18,10 @@ public class SearchProduct {
 
     public WebDriver driver;
 
-    @Before
-    public void setUp() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1000));
-        driver.get("https://magento.softwaretestingboard.com/");
-        Thread.sleep(1000);
-    }
 
     @Given("user enter a product name in the search box")
     public void user_enter_a_product_name_in_the_search_box() throws InterruptedException {
+        driver = DriverFactory.getDriver();
         WebElement searchBox = driver.findElement(By.id("search"));
         searchBox.sendKeys("tshirts for women");
         searchBox.sendKeys(Keys.ENTER);

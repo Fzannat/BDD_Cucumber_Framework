@@ -1,5 +1,6 @@
 package step_definition;
 
+import com.bdd.DriverLogic.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -15,19 +16,10 @@ import java.time.Duration;
 public class ShoppingCart {
     public WebDriver driver;
 
-    @Before
-    public void setUp() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1000));
-        driver.get("https://magento.softwaretestingboard.com/");
-        Thread.sleep(1000);
-    }
 
     @Given("user choose an product and add this to the shopping cart")
     public void user_choose_an_product_and_add_this_to_the_shopping_cart() throws InterruptedException {
+        driver = DriverFactory.getDriver();
         driver.findElement(By.xpath(" //a[contains(text(), 'Radiant Tee')]")).click();
         Thread.sleep(1000);
         driver.findElement(By.id("option-label-size-143-item-167")).click();
@@ -49,9 +41,5 @@ public class ShoppingCart {
         Assert.assertTrue(actualProductName.contains(expectedProductName));
     }
 
-    @After
-    public void tearUp(){
-        driver.quit();
-    }
 
 }

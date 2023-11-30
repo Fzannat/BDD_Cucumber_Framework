@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
                 features = "src/test/resources/com.luma.bdd.qa.FeatureFile",
-                glue = {"step_definition"},
-                tags = "@LUMALogin"
+                glue = {"step_definition", "com.bdd.hooks"},
+                tags = "@LUMALogin or @LUMACreateAnAccount or @LUMASearchProduct or @LUMAShoppingCart"
 
                 )
 public class RunnerJUnit {

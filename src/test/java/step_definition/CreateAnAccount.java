@@ -1,5 +1,6 @@
 package step_definition;
 
+import com.bdd.DriverLogic.DriverFactory;
 import com.luma.bdd.qa.Utilities.Util;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,19 +18,10 @@ import java.util.Map;
 public class CreateAnAccount {
     public WebDriver driver;
 
-    @Before
-    public void setUp() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1000));
-        driver.get("https://magento.softwaretestingboard.com/");
-        Thread.sleep(1000);
-    }
 
     @Given("user navigate to create an account page")
-    public void user_navigate_to_create_an_account_page() {
+    public void user_navigate_to_create_an_account_page() throws InterruptedException {
+        driver = DriverFactory.getDriver();
         driver.findElement(By.xpath("//div[@class = 'panel header']//descendant::a[contains(text(), 'Create an Account')]")).click();
 
     }
@@ -96,10 +88,6 @@ public class CreateAnAccount {
 
     }
 
-    @After
-    public void tearUp(){
-        driver.quit();
-    }
 
 
 }

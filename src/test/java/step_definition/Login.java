@@ -1,5 +1,6 @@
 package step_definition;
 
+import com.bdd.DriverLogic.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -11,23 +12,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import java.sql.Driver;
 import java.time.Duration;
 
 public class Login {
     public WebDriver driver;
 
-    @Before
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(1000));
-        driver.get("https://magento.softwaretestingboard.com/");
-    }
-
     @Given("user navigate to SignIn page")
     public void user_navigate_to_SignIn_page(){
+        driver = DriverFactory.getDriver();
         driver.findElement(By.xpath("//div[@class = 'panel header']//descendant::a[contains(text(), 'Sign In')]")).click();
     }
     @When("user entered valid email {string}")
@@ -75,11 +68,6 @@ public class Login {
                 (By.xpath("//div[text()='If you have an account, sign in with your email address.']")).getText();
         String expectedWarningMessage = "If you have an account, sign in with your email address.";
         Assert.assertTrue(actualWarningMessage.contains(expectedWarningMessage));
-    }
-
-    @After
-    public void tearUp(){
-        driver.quit();
     }
 
 }
