@@ -23,6 +23,7 @@ public class ShoppingCartTest {
         driver.get("https://magento.softwaretestingboard.com/");
         Thread.sleep(1000);
         driver.findElement(By.xpath(" //a[contains(text(), 'Radiant Tee')]")).click();
+        System.out.println(driver.getTitle());
         Thread.sleep(1000);
         driver.findElement(By.id("option-label-size-143-item-167")).click();
         Thread.sleep(1000);
@@ -31,6 +32,7 @@ public class ShoppingCartTest {
         driver.findElement(By.id("product-addtocart-button")).click();
         Thread.sleep(1000);
         driver.findElement(By.linkText("shopping cart")).click();
+        System.out.println(driver.getTitle());
         Thread.sleep(1000);
         String actualProductName = driver.findElement(By.xpath("//tbody[@class ='cart item']/descendant::strong/a")).getText();
         String expectedProductName = "Radiant Tee";

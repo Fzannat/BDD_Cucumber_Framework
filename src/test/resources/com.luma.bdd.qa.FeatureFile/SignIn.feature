@@ -1,4 +1,4 @@
-@LUMALogin
+@LUMASignIn
 Feature: LUMA webpage login functionality
 
 

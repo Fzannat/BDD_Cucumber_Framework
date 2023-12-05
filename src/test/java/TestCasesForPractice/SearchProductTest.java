@@ -25,10 +25,13 @@ public class SearchProductTest {
         WebElement searchBox = driver.findElement(By.id("search"));
         searchBox.sendKeys("tshirts for women");
         searchBox.sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath("//a[contains(text(), 'Radiant Tee')] ")).click();
+        System.out.println(driver.getTitle());
+        driver.findElement(By.xpath("//a[contains(text(), 'Radiant Tee')]")).click();
         Thread.sleep(1000);
+        System.out.println(driver.getTitle());
 
         Assert.assertTrue(driver.findElement(By.className("base")).getText().contains("Radiant Tee"));
+        driver.quit();
 
     }
 }

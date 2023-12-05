@@ -7,10 +7,9 @@ Feature: LUMA webpage create an account functionality
     Scenario: create an account with all detail
       Given user navigate to create an account page
       When user entered all the below field
-      | firstName       | Fatema       |
-      | lastName        | Zannat       |
-      | password        | Selenium@123 |
-      | confirmPassword | Selenium@123 |
+        | firstName | Fatema       |
+        | lastName  | Zannat       |
+        | password  | Selenium@123 |
       And user clicked on createAnAccount button
       Then user Account gets created
 
